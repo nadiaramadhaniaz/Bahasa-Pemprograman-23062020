@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+string nama, kelas, no_absen;
+char pilihan;
+int angkatan;
+float nilai;
+bool hasil, hasil2;
+double a, b, c, d;
+
+
+void program(){
+	
+	system("cls");
+
+	cout << "\nMasukan Kelas  [Angka]\t>> "	; cin >> kelas;
+	cout << "\nMasukan Angkatan [Tahun]\t>> "	; cin >> angkatan;
+	cout << "\nMasukan No_absen\t\t\t>> "		; cin >> no_absen;
+	
+	system("cls");
+	
+	cout << "\nmasukan Nilai Bahasa Indonesia"				<< "\t\t\t>> "	; cin >> a;
+	cout << "\nmasukan Nilai Matematika"					<< "\t\t\t>> "	; cin >> b;
+	cout << "\nmasukan Nilai Bahasa Inggris"				<< "\t\t\t\t>> "; cin >> c;
+	cout << "\nmasukan Nilai Kimia/Fisika/Biologi/Ekonomi?Sosiologi/Geografi"			<< "\t\t\t>> "	; cin >> d;
+
+	nilai = ((a + b + c + d ) / 4);
+	
+	hasil2 = nilai <= 60.09;
+	hasil = nilai >= 60.09;
+	
+	cout << "\n\n-NAMA\t: " << nama;
+	cout << "\t-KELAS\t: " << kelas;
+	cout << "\t-NO_ABSEN\t: " << no_absen;
+	cout << "\t-ANGKATAN\t: " << angkatan << "\n\n";
+	
+	
+	
+	if (nilai <= 40.09){
+		cout << "Nilai Predikat E , Nilai Angka\t: "	<< nilai << "\n";
+	}else if (nilai <= 54.09){
+		cout << "Nilai Predikat D , Nilai Angka\t: \t: "	<< nilai << "\n";
+	}else if (nilai <= 60.09){
+		cout << "Nilai Predikat C , Nilai Angka\t: \t: "	<< nilai << "\n";
+	}else if (nilai <= 70.09){
+		cout << "Nilai Predikat BC , Nilai Angka\t: \t: "	<< nilai << "\n";
+	}else if (nilai <= 80.09){
+		cout << "Nilai Predikat B , Nilai Angka\t: \t: "	<< nilai << "\n";
+	}else if (nilai <= 85.09){
+		cout << "Nilai Predikat AB , Nilai Angka\t: \t: "	<< nilai << "\n";
+	}else if (nilai <= 100){
+		cout << "Nilai Predikat A , Nilai Angka\t: \t: "	<< nilai << "\n";
+	}else{
+		cout << "pilihan anda tidak tersedia\n";
+	}
+	
+	if (hasil){
+		cout << "\nAnda Lulus\n";
+	}
+	else if (hasil2){
+		cout << "\nAnda Tidak Lulus\n";
+	}
+}
+
+int main(){
+	
+	cout << "Tulis nama ada : \t "; getline (cin, nama);
+	system("cls");
+	
+	awal :
+		cout << "Selamat datang, ' " << nama << " ' Apa anda ingin mengetahui nilai anda? [Y / N]\t>> "; cin >> pilihan;
+	
+	while(true){
+		
+		if (pilihan == 'y' || pilihan == 'Y'){
+			program();
+			break;
+		}
+		else if (pilihan == 'n' || pilihan == 'N'){
+			cout << "\nTerima Kasih Atas Kunjungan Anda";
+			break;
+		}
+		else{
+			cout << "\nPilihan Anda Tidak tERSEDIA!\n"; goto awal;
+		}
+	}
+	
+	return 0;
+}
